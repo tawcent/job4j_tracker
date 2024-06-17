@@ -12,15 +12,13 @@ public class Broken {
         if (obj != null) {
             System.out.println(obj);
         }
+    }
 
-        void method ( int a, int b) {
-        }
+    void method(int a, int b) {
+    }
 
+    String name;
 
-        String Name;
-
-        Broken() {
-        }
-
+    Broken() {
     }
 }
