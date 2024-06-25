@@ -8,27 +8,27 @@ public class Calculator {
         return x + y;
     }
 
-    public static int minus(int c) {
-        return c - x;
+    public static int minus(int y) {
+        return y - x;
     }
 
-    public int divide(int b) {
-        return b / x;
+    public int divide(int y) {
+        return y / x;
     }
 
-    public int multiply(int a) {
-        return x * a;
+    public int multiply(int y) {
+        return x * y;
     }
 
-    public int sumAllOperations() {
-        return sum(5) + minus(10) + divide(10) + multiply(5);
+    public int sumAllOperations(int y) {
+        return sum(y) + minus(y) + divide(y) + multiply(y);
     }
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
         int result = calculator.multiply(5);
         System.out.println("Умножение : " + result);
-        int resultallsum = calculator.sumAllOperations();
+        int resultallsum = calculator.sumAllOperations(5);
         System.out.println("Сумма всех операций : " + resultallsum);
         int resultdiv = calculator.divide(10);
         System.out.println("Деление : " + resultdiv);
