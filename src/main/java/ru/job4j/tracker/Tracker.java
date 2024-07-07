@@ -21,12 +21,12 @@ public class Tracker {
                 break;
             }
         }
-            return result;
+        return result;
     }
 
     public Item findById(int id) {
-       int index = indexOf(id);
-       return index != -1 ? items[index] : null;
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
     }
 
     public Item[] findAll() {
@@ -55,5 +55,17 @@ public class Tracker {
             items[index] = item;
         }
         return result;
+    }
+
+    public void delete(int id) {
+        int index = indexOf(id);
+        if (index >= 0) {
+            int start = index + 1;
+            int distPos = index;
+            int lenght = size - index - 1;
+            System.arraycopy(items, start, items, distPos, lenght);
+            items[size - 1] = null;
+            size--;
+        }
     }
 }
