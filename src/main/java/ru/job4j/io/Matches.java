@@ -18,7 +18,7 @@ public class Matches {
                 count -= matches;
                 System.out.println("На столе осталось спичек: " + count);
                 turn = !turn;
-            }
+            }1
         }
         if (!turn) {
             System.out.println("Победа первого игрока!");
