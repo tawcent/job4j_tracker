@@ -5,7 +5,7 @@ public interface ExampleInterface {
     class ExampleClass {
 
         interface InnerExampleInterface {
-            //kod interface
+            /* kod interface */
         }
     }
 
