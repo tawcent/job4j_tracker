@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class StartUi {
+public class StartUI {
     public void init(Input input, Tracker tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
@@ -30,6 +30,6 @@ public class StartUi {
                 new FindByNameAction(),
                 new ExitAction()
         };
-        new StartUi().init(input, tracker, actions);
+        new StartUI().init(input, tracker, actions);
     }
 }
