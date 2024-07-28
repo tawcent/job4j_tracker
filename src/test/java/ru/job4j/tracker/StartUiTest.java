@@ -71,4 +71,53 @@ class StartUITest {
                         + "=== Завершение программы ===" + System.lineSeparator()
         );
     }
+
+    @Test
+    void whenFindAllAction() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Item name"));
+        Input input = new MockInput(
+                new String[] {"0", "1"}
+        );
+        UserAction[] actions = {
+                new FindAllAction(output),
+                new ExitAction(output)
+        };
+        new StartUI(output).init(input, tracker, actions);
+        assertThat(tracker.findAll()).containsExactly(item);
+
+    }
+
+    @Test
+    void whenFindByIdAction() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Item name"));
+        Input input = new MockInput(
+                new String[] {"0", String.valueOf(item.getId()), "1"}
+        );
+        UserAction[] actions = {
+                new FindByIdAction(output),
+                new ExitAction(output)
+        };
+        new StartUI(output).init(input, tracker, actions);
+        assertThat(tracker.findById(item.getId())).isEqualTo(item);
+    }
+
+    @Test
+    void whenFindByNameAction() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Item name"));
+        Input input = new MockInput(
+                new String[] {"0", item.getName(), "1"}
+        );
+        UserAction[] actions = {
+                new FindByNameAction(output),
+                new ExitAction(output)
+        };
+        new StartUI(output).init(input, tracker, actions);
+        assertThat(tracker.findByName(item.getName())).containsExactly(item);
+    }
 }
