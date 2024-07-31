@@ -22,7 +22,7 @@ public class FindEl {
         try {
             indexOf(new String[]{"kid", "weey", "up", "hello"}, "kid");
         } catch (ElementNotFoundException e) {
-            e.printStackTrace ();
+            e.printStackTrace();
         }
     }
 }
