@@ -3,7 +3,7 @@ package ru.job4j.ex;
 import javax.swing.plaf.InsetsUIResource;
 
 public class FindEl {
-    public static int indexOf(String[] value, String key) throws UserInputException {
+    public static int indexOf(String[] value, String key) throws ElementNotFoundException {
         int result = -1;
         for (int i = 0; i < value.length; i++) {
             if (value[i].equals(key)) {
@@ -13,7 +13,7 @@ public class FindEl {
         }
 
         if (result == -1) {
-            throw new UserInputException("Key could not be search");
+            throw new ElementNotFoundException("Key could not be search");
         }
         return result;
     }
@@ -21,7 +21,7 @@ public class FindEl {
     public static void main(String[] args) {
         try {
             indexOf(new String[]{"kid", "weey", "up", "hello"}, "kid");
-        } catch (UserInputException e) {
+        } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }
     }
