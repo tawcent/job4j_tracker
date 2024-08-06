@@ -12,7 +12,7 @@ class PasswordValidatorTest {
         String expected = "Ln2$mrTY12";
         String result = PasswordValidator.validate(password);
         assertThat(result).isEqualTo(expected);
-    }
+    }1
 
     @Test
     void whenPasswordIsNull() {
