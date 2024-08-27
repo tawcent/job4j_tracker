@@ -12,5 +12,5 @@ public class UsageHashSet {
         for (Object auto : autos) {
             System.out.println(auto);
         }
-    }1
+    }
 }
