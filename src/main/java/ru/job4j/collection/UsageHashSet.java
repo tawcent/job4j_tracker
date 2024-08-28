@@ -4,12 +4,14 @@ import java.util.HashSet;
 
 public class UsageHashSet {
     public static void main(String[] args) {
-        HashSet autos = new HashSet<>();
+        HashSet<String> autos = new HashSet<>();
         autos.add("Lada");
         autos.add("BMW");
+        autos.add("Toyota");
         autos.add("Volvo");
         autos.add("Toyota");
-        for (Object auto : autos) {
+        autos.add("Lada");
+        for (String auto : autos) {
             System.out.println(auto);
         }
     }
