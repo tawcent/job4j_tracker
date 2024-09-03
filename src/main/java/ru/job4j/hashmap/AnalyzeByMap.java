@@ -1,5 +1,6 @@
 package ru.job4j.hashmap;
 
+import javax.naming.ServiceUnavailableException;
 import java.util.*;
 
 public class AnalyzeByMap {
@@ -24,8 +25,9 @@ public class AnalyzeByMap {
                 totalScore += subject.score();
                 totalSubjects++;
             }
-            double averageScore = totalSubjects == 0 ? 0 : totalScore / totalSubjects;
-            result.add(new Label(pupil.name(), averageScore));
+                double averageScore = totalSubjects == 0 ? 0 : totalScore / totalSubjects;
+                result.add(new Label(pupil.name(), averageScore));
+
         }
         return result;
     }
@@ -40,7 +42,6 @@ public class AnalyzeByMap {
                 subjectScore.put(nameOfSubject, currentScore + subject.score());
             }
         }
-
         List<Label> result = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : subjectScore.entrySet()) {
             String subjectName = entry.getKey();
@@ -51,37 +52,37 @@ public class AnalyzeByMap {
     }
 
     public static Label bestStudent(List<Pupil> pupils) {
-        List<Label> bestStudent = new ArrayList<>();
+        List<Label> result = new ArrayList<>();
         for (Pupil pupil : pupils) {
             int totalScore = 0;
             for (Subject subject : pupil.subjects()) {
                 totalScore += subject.score();
             }
-            Label studentLabel = new Label(pupil.name(), totalScore);
-            bestStudent.add(studentLabel);
+            Label label = new Label(pupil.name(), totalScore);
+            result.add(label);
         }
-        Collections.sort(bestStudent);
-        return bestStudent.get(bestStudent.size() - 1);
+        Collections.sort(result);
+        return result.get(result.size() - 1);
     }
 
     public static Label bestSubject(List<Pupil> pupils) {
         Map<String, Integer> bestSubject = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                String subjectName = subject.name();
+                String nameOfScore = subject.name();
                 int score = subject.score();
-                bestSubject.put(subjectName, bestSubject.getOrDefault(subjectName, 0) + score);
+                bestSubject.put(nameOfScore, bestSubject.getOrDefault(nameOfScore, 0) + score);
             }
         }
 
-        List<Label> subjectLabels = new ArrayList<>();
+        List<Label> result = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : bestSubject.entrySet()) {
             String subjectName = entry.getKey();
             int totalScore = entry.getValue();
             Label subjectLabel = new Label(subjectName, totalScore);
-            subjectLabels.add(subjectLabel);
+            result.add(subjectLabel);
         }
-        Collections.sort(subjectLabels);
-        return subjectLabels.get(subjectLabels.size() - 1);
+        Collections.sort(result);
+        return result.get(result.size() - 1);
     }
 }
