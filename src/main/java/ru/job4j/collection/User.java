@@ -15,10 +15,7 @@ public class User implements Comparable<User> {
     @Override
     public int compareTo(User o) {
         int i = this.name.compareTo(o.name);
-        if (i == 0) {
-            return Integer.compare(this.age, o.age);
-        }
-        return i;
+            return i == 0 ? Integer.compare(this.age, o.age) : i;
     }
 
     @Override
