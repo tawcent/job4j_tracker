@@ -62,7 +62,7 @@ class JobTest {
         Comparator<Job> nameandpriority = new JobUpByName().thenComparing(new JobUpByPriority());
         int result = nameandpriority.compare(
                 new Job("Tasks", 5),
-                new Job("Bugreport", 1)
+                new Job("Tasks", 1)
         );
         assertThat(result).isGreaterThan(0);
     }
