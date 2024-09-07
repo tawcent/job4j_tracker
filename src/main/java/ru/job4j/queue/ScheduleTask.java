@@ -15,7 +15,6 @@ public class ScheduleTask {
     }
 
     public Task readTask() {
-        PriorityQueue<Position> positions = new PriorityQueue<>();
         return queue.peek();
     }
 
