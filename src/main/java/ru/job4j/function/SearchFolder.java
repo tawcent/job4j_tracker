@@ -22,4 +22,4 @@ public class SearchFolder {
         }
         return result;
     }
-}1
+}

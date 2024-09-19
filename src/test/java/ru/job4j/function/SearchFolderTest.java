@@ -36,4 +36,4 @@ public class SearchFolderTest {
         List<Folder> result = SearchFolder.filter(list, predicate);
         assertThat(result).containsAll(expected);
     }
-}1
+}
